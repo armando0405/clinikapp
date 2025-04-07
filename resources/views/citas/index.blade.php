@@ -2,6 +2,24 @@
 
 @section('content')
 
+{{-- link encarghados de dar funcionalidad a la pagina --}}
+<link rel="stylesheet" href="{{  url('css/lightbox.min.css') }}">
+<link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="{{  url('js/lightbox.min.js') }}"></script>
+<script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
+
+{{-- ESTOS SON OTRO METODO SOLO QUE NO ESRTA CORECTO Y ENONCES NO SE COMO USARLOS
+ASI QUE LOS DEJARE COMENTADOS 
+--}}
+{{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
+
+ 
     <!-- page content -->
     <div class="right_col" role="main">
         <div class="">
@@ -23,7 +41,7 @@
                         <div class="x_content">
                             {{-- Listado de citas --}}
                             <div class="table-responsive">
-                                <table class="table table-striped jambo_table bulk_action">
+                                <table id="myTable"  class="table table-striped jambo_table bulk_action">
                                     <thead>
                                         <tr class="headings">
                                             <th class="column-title">ID cita</th>
@@ -65,5 +83,16 @@
         </div>
     </div>
     <!-- /page content -->
+    
+    {{-- funcionalidad --}}
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
 
+
+    {{-- ESTA parte esta conectada con los enlaces comentados en la parte de arriba --}}
+    {{-- <script>
+        $('select').select2();
+    </script> --}}
+    
 @endsection

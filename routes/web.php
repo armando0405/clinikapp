@@ -7,8 +7,7 @@ use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\LoginController;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\Route;
-
-
+// use Illuminate\Container\Attributes\Auth; //no pq no me coge
 
 Route::get('/login', function () {
     if(Auth::check()){

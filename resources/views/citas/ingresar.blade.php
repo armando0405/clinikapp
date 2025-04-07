@@ -2,10 +2,17 @@
 
 @section('content')
 
+{{-- link encarghados de dar funcionalidad a la pagina --}}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
     <div class="right_col" role="main">
         <div class="x_panel" >
             <div class="x_title">
-                <h2 class="text-2xl font-bold text-center ">Agregar doctor</h2>
+                <h2 class="text-2xl font-bold text-center ">Agregar Citas</h2>
                 <div class="clearfix"></div>
             </div>
 
@@ -141,5 +148,11 @@
             </div>
         </div>
     </div>
+
+    
+    {{-- funcionalidad --}}
+<script>
+    $('select').select2();
+</script>
 
 @endsection

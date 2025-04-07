@@ -1,6 +1,13 @@
 @extends('layout')
 
 @section('content')
+    <link rel="stylesheet" href="{{  url('css/lightbox.min.css') }}">
+    <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{  url('js/lightbox.min.js') }}"></script>
+    <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+
 
     <!-- page content -->
     <div class="right_col" role="main">
@@ -11,7 +18,7 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2 class="text-2xl font-bold text-center ">Pacientes</h2>
+                            <h2 class="text-2xl font-bold text-center " >Pacientes</h2>
                             <div class="nav navbar-right panel_toolbox">
                                 <a href="{{ route('pacientes.create') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i> Ingresar Paciente
@@ -24,7 +31,7 @@
                             {{-- <p>Listado de pacientes activos</p> --}}
 
                             <!-- start project list -->
-                            <table class="table table-striped projects">
+                            <table id="myTable" class="table table-striped projects">
                                 <thead>
                                     <tr>
                                         <th>Foto</th>
@@ -41,7 +48,10 @@
                                         <tr>
                                             <td>
                                                 {{-- <img src="{{ $paciente->foto }}" class="avatar" alt="Foto de {{ $paciente->nombre }}"> --}}
-                                                <img src="{{ $paciente->foto }}" class="avatar img-circle" alt="Foto de {{ $paciente->nombre }}" style="width: 60px; height: 60px; object-fit: cover;">
+                                                <a href="{{ $paciente->foto }}" data-lightbox="Foto" data-title="{{ $paciente->nombre }}">
+                                                    <img src="{{ $paciente->foto }}" class="avatar img-circle" alt="Foto de {{ $paciente->nombre }}" style="width: 60px; height: 60px; object-fit: cover;">
+                                                </a>
+
 
                                             </td>
                                             <td style="font-size: 16px;" >{{ $paciente->id }}</td>
@@ -72,4 +82,9 @@
     </div>
     <!-- /page content -->
 
+    
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
+    
 @endsection
